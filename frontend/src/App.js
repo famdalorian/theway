@@ -49,7 +49,7 @@ const Home = () => {
       <section className="hero-section">
         <div className="hero-overlay">
           <h2>Experience the Energy of The Way</h2>
-          <p>Join our rollerblading park, train in MMA, or express your creativity. Adventure awaits you here!</p>
+          <p>Join our skate park, train in MMA, or express your creativity. Adventure awaits you here!</p>
           <Link to="/contact" className="cta-button">
             Get in Touch
           </Link>
