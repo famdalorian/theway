@@ -9,12 +9,12 @@ body {
 
 /* Hero Section */
 .hero-section {
-  background-image: url('../../assets/door.png'); /* Grayscale background image */
+  background-image: url('../..//assets/door.png'); /* Grayscale background image */
   background-size: cover;
   background-position: center;
   height: 80vh;
   position: relative;
-  color: #e0e0e0; /* Text color for hero section */
+  color: #e0e0e0;
 }
 
 .hero-overlay {
@@ -69,23 +69,55 @@ body {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   color: #e0e0e0;
-}
-
-.panel:hover {
-  transform: translateY(-10px);
-}
-
-.panel img {
-  width: 100%;
-  border-radius: 10px;
-  margin-top: 15px;
-  filter: grayscale(100%); /* Ensures grayscale images */
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .panel h3 {
   font-size: 1.8rem;
   color: #a4cc34;
   margin-bottom: 15px;
+  z-index: 2;
+}
+
+.panel p {
+  z-index: 2;
+}
+
+/* Overlay for panels */
+.panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text readability */
+  z-index: 1;
+}
+
+/* Background images for each panel */
+.panel.community {
+  background-image: url('../../assets/door.png');
+}
+
+.panel.growth {
+  background-image: url('../../assets/walk.png');
+}
+
+.panel.creativity {
+  background-image: url('../../assets/create.png');
+}
+
+/* Hover effect */
+.panel:hover {
+  transform: translateY(-10px);
 }
 
 /* Values & Goals Section */
@@ -149,11 +181,40 @@ body {
   margin: 0 auto 40px;
 }
 
-.vision-image {
-  width: 100%;
-  max-width: 800px;
+.future-vision-panel {
+  background-image: url('../../assets/foyer.png'); /* Future vision image */
+  background-size: cover;
+  background-position: center;
+  padding: 40px;
   border-radius: 10px;
-  filter: grayscale(100%);
+  color: #e0e0e0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  margin-top: 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+/* Overlay for Future Vision panel */
+.future-vision-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay for text visibility */
+  z-index: 1;
+}
+
+.future-vision-panel p {
+  position: relative;
+  z-index: 2;
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #e0e0e0;
 }
 
 /* Call to Action Section */
@@ -191,84 +252,45 @@ body {
   background-color: #333;
 }
 
-/* Responsive Layout */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .mission-panels, .values-grid {
+  .mission-panels,
+  .values-grid {
     flex-direction: column;
     align-items: center;
   }
-  
-  .panel, .value-box {
+
+  .panel,
+  .value-box {
     width: 100%;
     max-width: 100%;
   }
-}
-/* Mission Panels Styling */
-.mission-panels {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 30px;
+
+  .hero-overlay h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-overlay p {
+    font-size: 1.2rem;
+  }
 }
 
-.panel {
-  flex: 1;
-  min-width: 250px;
-  max-width: 350px;
-  background-color: #1c1f24;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  color: #e0e0e0;
-  position: relative;
-  overflow: hidden;
-  background-size: cover; /* Ensures the background covers the panel */
-  background-position: center;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
+@media (max-width: 480px) {
+  .hero-overlay h1 {
+    font-size: 2rem;
+  }
 
-.panel h3 {
-  font-size: 1.8rem;
-  color: #a4cc34;
-  margin-bottom: 15px;
-  z-index: 2;
-}
+  .hero-overlay p {
+    font-size: 1rem;
+  }
 
-.panel p {
-  z-index: 2;
-}
+  .call-to-action h2,
+  .future-vision h2 {
+    font-size: 2rem;
+  }
 
-/* Grayscale Background Images */
-.panel::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text readability */
-  z-index: 1;
-}
-
-/* Specific background images for each panel */
-.panel.community {
-  background-image: url('../../assets/door.png');
-}
-
-.panel.growth {
-  background-image: url('../../assets/walk.png');
-}
-
-.panel.creativity {
-  background-image: url('../../assets/create.png');
-  display: block;
-}
-
-/* Hover effect */
-.panel:hover {
-  transform: translateY(-10px);
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
 }

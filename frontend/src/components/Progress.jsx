@@ -9,7 +9,7 @@ const Progress = () => {
 
   const gymGoal = 50000; // Gym goal
   const studioGoal = 100000; // Studio goal
-  const skateparkGoal = 2000000; // Skatepark goal
+  const skateparkGoal = 2500000; // Skatepark goal
 
   const calculateProgress = (current, goal) => (current / goal) * 100;
 
@@ -55,7 +55,7 @@ const Progress = () => {
 
       {/* Skatepark Progress */}
       <div className="progress-section">
-        <h3>Skatepark - $2,000,000 Goal</h3>
+        <h3>Skatepark - $2,500,000 Goal</h3>
         <div className="progress-bar-3d">
           <div
             className="progress-bar-fill-3d"

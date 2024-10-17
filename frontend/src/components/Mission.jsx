@@ -62,10 +62,11 @@ const Mission = () => {
       {/* Future Vision Section */}
       <section className="future-vision">
         <h2>The Future of The Way</h2>
-        <p>
-          Our goal is to create a space that connects creativity, sports, and community. We envision The Way growing globally, impacting lives everywhere.
-        </p>
-        <img src="/assets/vision-grayscale.jpg" alt="Future Vision" className="vision-image" />
+        <div className="future-vision-panel">
+          <p>
+            Our goal is to create a space that connects creativity, sports, and community. We envision The Way growing globally, impacting lives everywhere.
+          </p>
+        </div>
       </section>
 
       {/* Call to Action Section */}
