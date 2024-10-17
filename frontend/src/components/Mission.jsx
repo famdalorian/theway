@@ -1,32 +1,81 @@
-// src/components/Mission.js
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-import './styles/mission.css'
-
+import './styles/mission.css'; // Custom CSS for the mission page
 
 const Mission = () => {
   return (
     <div className="mission-container">
-      <section className="mission-section">
-        <h2>Our Mission</h2>
-        <p>
-          At The Way, our vision is to create a space where action, creativity, and community come together. We are passionate about building a state-of-the-art rollerblading park and an elite training gym for MMA and Muay Thai, but we need your help to make this dream a reality.
-        </p>
-        <p>
-          Currently, we are in the fundraising phase, and with your support, we aim to build a world-class facility that fosters physical and mental growth, where people can push their limits, develop their skills, and explore their creative potential.
-        </p>
-        <p>
-          Join us on this journey to raise the funds needed to bring The Way to life, and together we can create something extraordinary.
-        </p>
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-overlay">
+          <h1>Our Vision for the Future</h1>
+          <p>
+            We are creating a dynamic space that combines sports, creativity, and community. 
+            Join us on the journey.
+          </p>
+        </div>
       </section>
-      
-      {/* Button to Progress Page */}
-      <div className="progress-button-container">
-        <Link to="/progress" className="cta-button">
-          Check Our Progress and Donate
-        </Link>
-      </div>
+
+      {/* Mission Statement Section */}
+      <section className="mission-statement">
+        <h2>Our Mission</h2>
+        <div className="mission-panels">
+          <div className="panel community">
+            <h3>Community Driven</h3>
+            <p>
+              Fostering an inclusive community where individuals come together to share, grow, and succeed.
+            </p>
+          </div>
+          <div className="panel growth">
+            <h3>Growth & Opportunity</h3>
+            <p>
+              Providing opportunities for growth in sports, arts, and personal development. The Way is for everyone.
+            </p>
+          </div>
+          <div className="panel creativity">
+            <h3>Creativity & Expression</h3>
+            <p>
+              Encouraging freedom of expression through creative centers, where art and sports come together.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Values & Goals Section */}
+      <section className="values-goals">
+        <h2>Our Core Values</h2>
+        <div className="values-grid">
+          <div className="value-box">
+            <h3>Integrity</h3>
+            <p>We believe in transparency and honesty, building trust within the community.</p>
+          </div>
+          <div className="value-box">
+            <h3>Dedication</h3>
+            <p>Driven by a passion for excellence and commitment to making an impact.</p>
+          </div>
+          <div className="value-box">
+            <h3>Inclusion</h3>
+            <p>Creating a welcoming environment where everyone has a place and an opportunity to thrive.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Future Vision Section */}
+      <section className="future-vision">
+        <h2>The Future of The Way</h2>
+        <p>
+          Our goal is to create a space that connects creativity, sports, and community. We envision The Way growing globally, impacting lives everywhere.
+        </p>
+        <img src="/assets/vision-grayscale.jpg" alt="Future Vision" className="vision-image" />
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="call-to-action">
+        <h2>Join Our Movement</h2>
+        <p>
+          Help us build the future of The Way by contributing or getting involved. Together, we can make a lasting impact.
+        </p>
+        <button className="cta-button">Get Involved</button>
+      </section>
     </div>
   );
 };

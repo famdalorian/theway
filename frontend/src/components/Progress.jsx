@@ -1,12 +1,11 @@
 // src/components/Progress.js
-import React from 'react';
-import './styles/progress.css'
+import React from "react";
+import "./styles/progress.css"; // Link to your CSS file
 
 const Progress = () => {
-  // Example current values (you can later update this dynamically)
-  const currentGym = 20000; // $20,000 raised
-  const currentStudio = 50000; // $50,000 raised
-  const currentSkatepark = 500000; // $500,000 raised
+  const currentGym = 5000; // $20,000 raised
+  const currentStudio = 5000; // $50,000 raised
+  const currentSkatepark = 5000; // $500,000 raised
 
   const gymGoal = 50000; // Gym goal
   const studioGoal = 100000; // Studio goal
@@ -17,72 +16,101 @@ const Progress = () => {
   return (
     <div className="progress-container">
       <h2>Help Us Reach Our Goals</h2>
-      <p>We're raising funds for three major parts of our project. Every bit helps!</p>
+      <p>
+        We're raising funds for three major parts of our project. Every bit
+        helps!
+      </p>
 
       {/* Gym Progress */}
       <div className="progress-section">
         <h3>Gym - $50,000 Goal</h3>
-        <div className="progress-bar">
+        <div className="progress-bar-3d">
           <div
-            className="progress-bar-fill"
-            style={{ width: `${calculateProgress(currentGym, gymGoal)}%` }}
+            className="progress-bar-fill-3d"
+            style={{
+              transform: `scaleX(${
+                calculateProgress(currentGym, gymGoal) / 100
+              })`,
+            }}
           ></div>
         </div>
         <p>${currentGym.toLocaleString()} raised</p>
-        <div className="crypto-addresses">
-          <p><strong>ETH:</strong> 0xGymEthAddress</p>
-          <p><strong>SOL:</strong> GymSolAddress</p>
-          <p><strong>BTC:</strong> GymBtcAddress</p>
-        </div>
       </div>
 
       {/* Studio Progress */}
       <div className="progress-section">
         <h3>Studio - $100,000 Goal</h3>
-        <div className="progress-bar">
+        <div className="progress-bar-3d">
           <div
-            className="progress-bar-fill"
-            style={{ width: `${calculateProgress(currentStudio, studioGoal)}%` }}
+            className="progress-bar-fill-3d"
+            style={{
+              transform: `scaleX(${
+                calculateProgress(currentStudio, studioGoal) / 100
+              })`,
+            }}
           ></div>
         </div>
         <p>${currentStudio.toLocaleString()} raised</p>
-        <div className="crypto-addresses">
-          <p><strong>ETH:</strong> 0xStudioEthAddress</p>
-          <p><strong>SOL:</strong> StudioSolAddress</p>
-          <p><strong>BTC:</strong> StudioBtcAddress</p>
-        </div>
       </div>
 
       {/* Skatepark Progress */}
       <div className="progress-section">
         <h3>Skatepark - $2,000,000 Goal</h3>
-        <div className="progress-bar">
+        <div className="progress-bar-3d">
           <div
-            className="progress-bar-fill"
-            style={{ width: `${calculateProgress(currentSkatepark, skateparkGoal)}%` }}
+            className="progress-bar-fill-3d"
+            style={{
+              transform: `scaleX(${
+                calculateProgress(currentSkatepark, skateparkGoal) / 100
+              })`,
+            }}
           ></div>
         </div>
         <p>${currentSkatepark.toLocaleString()} raised</p>
-        <div className="crypto-addresses">
-          <p><strong>ETH:</strong> 0xSkateparkEthAddress</p>
-          <p><strong>SOL:</strong> SkateparkSolAddress</p>
-          <p><strong>BTC:</strong> SkateparkBtcAddress</p>
-        </div>
       </div>
-
-      {/* $WAY Coin Section */}
+      <div className="crypto-addresses">
+        <p>
+          <strong>ETH:</strong> 0xGymEthAddress
+        </p>
+        <p>
+          <strong>SOL:</strong> GymSolAddress
+        </p>
+        <p>
+          <strong>BTC:</strong> GymBtcAddress
+        </p>
+      </div>
+      <br />
+      {/* 3 Spinning Coins for $WAY */}
       <div className="way-coin-section">
         <h2>Support Us with $WAY</h2>
+        <div className="coin-row">
+          {/* ETH Coin */}
+          <div className="coin-3d-container eth-coin">
+            <div className="coin-3d"></div> {/* ETH coin */}
+          </div>
+          {/* SOL Coin */}
+          <div className="coin-3d-container sol-coin">
+            <div className="coin-3d"></div> {/* SOL coin */}
+          </div>
+          {/* BTC Coin */}
+          <div className="coin-3d-container btc-coin">
+            <div className="coin-3d"></div>
+          </div>
+        </div>
         <p>
-          $WAY is our exclusive token that helps fund the growth and development of The Way. By purchasing or donating $WAY, you’re directly supporting our mission to build a world-class facility for extreme sports, martial arts, and creativity.
-        </p>
-        <p>
-          You can purchase $WAY through our partnered platforms and contribute to our project. Every token bought brings us one step closer to building a space where community and growth thrive.
+          $WAY is our exclusive token that helps fund the growth and development
+          of The Way. You can purchase $WAY and contribute to our project.
         </p>
         <div className="crypto-addresses">
-          <p><strong>Contract Address (ETH):</strong> 0xWayEthTokenAddress</p>
-          <p><strong>Contract Address (SOL):</strong> WaySolTokenAddress</p>
-          <p><strong>Contract Address (BTC):</strong> WayBtcTokenAddress</p>
+          <p>
+            <strong>ETH:</strong> 0xWayEthTokenAddress
+          </p>
+          <p>
+            <strong>SOL:</strong> WaySolTokenAddress
+          </p>
+          <p>
+            <strong>BTC:</strong> WayBtcTokenAddress
+          </p>
         </div>
       </div>
     </div>
