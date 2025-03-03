@@ -1,79 +1,87 @@
 import React from 'react';
-import './styles/mission.css'; // Custom CSS for the mission page
+import './styles/mission.css';
 
 const Mission = () => {
   return (
-    <div className="mission-container">
-      {/* Hero Section */}
+    <div className="mission-page">
+      {/* Hero Section with Background Image */}
       <section className="hero-section">
         <div className="hero-overlay">
-          <h1>Our Vision for the Future</h1>
-          <p>
-            We are creating a dynamic space that combines sports, creativity, and community. 
-            Join us on the journey.
-          </p>
+          <div className="hero-content">
+            <h1>Our Mission</h1>
+            <p>
+              To unite art, music, and sports lovers in a global community that thrives on creativity, growth, and kindness.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Mission Statement Section */}
-      <section className="mission-statement">
-        <h2>Our Mission</h2>
-        <div className="mission-panels">
+      {/* What Drives Us Section with Panels */}
+      <section className="drives-section">
+        <h2>What Drives Us</h2>
+        <div className="drives-panels">
           <div className="panel community">
-            <h3>Community Driven</h3>
-            <p>
-              Fostering an inclusive community where individuals come together to share, grow, and succeed.
-            </p>
+            <div className="panel-overlay"></div>
+            <div className="panel-content">
+              <h3>Community Connection</h3>
+              <p>Bringing enthusiasts together to share, collaborate, and connect.</p>
+            </div>
           </div>
           <div className="panel growth">
-            <h3>Growth & Opportunity</h3>
-            <p>
-              Providing opportunities for growth in sports, arts, and personal development. The Way is for everyone.
-            </p>
+            <div className="panel-overlay"></div>
+            <div className="panel-content">
+              <h3>Growth Opportunities</h3>
+              <p>Empowering individuals through creative and athletic pursuits.</p>
+            </div>
           </div>
           <div className="panel creativity">
-            <h3>Creativity & Expression</h3>
-            <p>
-              Encouraging freedom of expression through creative centers, where art and sports come together.
-            </p>
+            <div className="panel-overlay"></div>
+            <div className="panel-content">
+              <h3>Creative Expression</h3>
+              <p>Fostering innovation in art, music, and sports.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Values & Goals Section */}
-      <section className="values-goals">
+      {/* Core Values Section with Icons */}
+      <section className="values-section">
         <h2>Our Core Values</h2>
         <div className="values-grid">
-          <div className="value-box">
+          <div className="value-card">
+            <div className="value-icon">🛡️</div>
             <h3>Integrity</h3>
-            <p>We believe in transparency and honesty, building trust within the community.</p>
+            <p>Building trust through transparency and honesty.</p>
           </div>
-          <div className="value-box">
+          <div className="value-card">
+            <div className="value-icon">🔥</div>
             <h3>Dedication</h3>
-            <p>Driven by a passion for excellence and commitment to making an impact.</p>
+            <p>Driven by passion to make a lasting impact.</p>
           </div>
-          <div className="value-box">
+          <div className="value-card">
+            <div className="value-icon">🤝</div>
             <h3>Inclusion</h3>
-            <p>Creating a welcoming environment where everyone has a place and an opportunity to thrive.</p>
+            <p>Welcoming all to contribute and grow.</p>
           </div>
         </div>
       </section>
 
-      {/* Future Vision Section */}
-      <section className="future-vision">
-        <h2>The Future of The Way</h2>
-        <div className="future-vision-panel">
+      {/* Future Vision Section with Split Layout */}
+      <section className="vision-section">
+        <div className="vision-text">
+          <h2>Our Vision for the Future</h2>
           <p>
-            Our goal is to create a space that connects creativity, sports, and community. We envision The Way growing globally, impacting lives everywhere.
+            A world where art, music, and sports unite people globally, inspiring creativity and kindness.
           </p>
         </div>
+        <div className="vision-image"></div>
       </section>
 
       {/* Call to Action Section */}
-      <section className="call-to-action">
-        <h2>Join Our Movement</h2>
+      <section className="cta-section">
+        <h2>Join the Movement</h2>
         <p>
-          Help us build the future of The Way by contributing or getting involved. Together, we can make a lasting impact.
+          Be part of a community that celebrates creativity and connection. Your journey starts here.
         </p>
         <button className="cta-button">Get Involved</button>
       </section>

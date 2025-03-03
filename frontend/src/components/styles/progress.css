@@ -1,130 +1,345 @@
-/* General container styling */
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;600&display=swap');
+
+/* CSS Variables */
+:root {
+  --background-color: #1a2b49; /* Dark navy */
+  --primary-color: #f5c518; /* Bright yellow */
+  --text-color: #ffffff; /* White */
+  --overlay-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  --transition-speed: 0.3s; /* Smooth transitions */
+  --font-heading: 'Oswald', sans-serif; /* Bold, modern headings */
+  --font-body: 'Roboto', sans-serif; /* Clean body text */
+}
+
+/* Progress Page Container */
+.progress-page {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Progress Hero Section */
+.progress-hero {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../../assets/progress-hero-bg.jpg'); /* Updated path */
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-color);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  max-width: 700px;
+}
+
+.hero-content h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Progress Section */
+.progress-section {
+  padding: 60px 20px;
+  background-color: #223a66; /* Slightly lighter navy */
+  text-align: center;
+}
+
+.progress-section h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+/* Progress Container */
 .progress-container {
-    padding: 40px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-    background-color: #0d1117; /* Dark background for contrast */
-    color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Progress Item */
+.progress-item {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: var(--background-color);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.progress-item h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* 3D Progress Bar Wrapper */
+.progress-bar-wrapper {
+  position: relative;
+  perspective: 1000px;
+  transition: transform var(--transition-speed) ease;
+}
+
+.progress-bar-wrapper:hover {
+  transform: rotateX(10deg) rotateY(5deg);
+}
+
+/* 3D Progress Bar */
+.progress-bar-3d {
+  width: 100%;
+  height: 30px; /* Increased height for 3D effect */
+  background-color: #2a3a66; /* Darker navy for depth */
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--primary-color);
+}
+
+/* Progress Bar Fill */
+.progress-bar-fill-3d {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), #e0b316); /* Gradient from yellow to darker shade */
+  border-radius: 15px;
+  width: 0; /* Start at 0 width, animate to target width */
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2), inset 0 -2px 5px rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  animation: fillProgress 2s ease-out forwards;
+}
+
+/* Use CSS custom property for animation */
+.progress-bar-fill-3d {
+  animation: fillProgress 2s ease-out forwards;
+}
+
+/* Add a shiny overlay effect on the fill */
+.progress-bar-fill-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shine 1.5s infinite linear;
+}
+
+/* Progress Bar Shadow */
+.progress-bar-shadow {
+  position: absolute;
+  bottom: -10px;
+  left: 5%;
+  width: 90%;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  filter: blur(5px);
+}
+
+.progress-item p {
+  text-align: center;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  margin-top: 10px;
+  color: var(--text-color);
+}
+
+/* Crypto Addresses */
+.crypto-addresses {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.crypto-addresses p {
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  margin: 5px 0;
+  color: var(--text-color);
+}
+
+.crypto-addresses strong {
+  color: var(--primary-color);
+}
+
+.crypto-address {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 5px 0;
+}
+
+.copy-button {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.copy-button:hover {
+  background-color: #e0b316;
+}
+
+/* $WAY Coin Section */
+.way-coin-section {
+  padding: 60px 20px;
+  background-color: var(--background-color);
+  text-align: center;
+}
+
+.way-coin-section h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.way-coin-section p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-color);
+  margin-bottom: 25px;
+}
+
+.coin-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.coin-3d-container {
+  width: 80px;
+  height: 80px;
+  perspective: 1000px;
+}
+
+.coin-3d {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  border-radius: 50%;
+  animation: spin 4s infinite linear;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.eth-coin .coin-3d,
+.sol-coin .coin-3d,
+.btc-coin .coin-3d {
+  background-image: url('../../assets/coinW.png'); /* Updated path */
+}
+
+/* Animations */
+@keyframes fillProgress {
+  0% {
+    width: 0;
   }
-  
-  /* Each progress section hover effect */
-  .progress-section {
-    margin-bottom: 50px;
-    transition: transform 0.3s ease-in-out;
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  100% {
+    width: var(--progress-width); /* Use the CSS custom property */
   }
-  
-  .progress-section:hover {
-    transform: scale(1.05) rotate(1deg);
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
   }
-  
-  /* 3D Progress Bar Styling */
-  .progress-bar-3d {
-    width: 100%;
-    height: 30px;
-    background: linear-gradient(to right, #1e3c72, #2a5298);
-    border-radius: 15px;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.7);
-    position: relative;
-    overflow: hidden;
+  100% {
+    left: 100%;
   }
-  
-  /* Glowing effect and animated gradient */
-  .progress-bar-fill-3d {
-    background: linear-gradient(45deg, #a4cc34, #8db600, #67a024, #a4cc34);
-    background-size: 200% 200%;
-    height: 100%;
-    border-radius: 15px;
-    transform-origin: left;
-    transition: transform 0.7s ease-in-out;
-    animation: gradientShift 3s ease infinite;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.7), 0px 0px 10px #a4cc34;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg);
   }
-  
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  100% {
+    transform: rotateY(360deg);
   }
-  
-  /* Crypto addresses section */
-  .crypto-addresses {
-    margin-top: 15px;
-    font-size: 1.1rem;
-    color: #a4cc34; /* Lime green for highlight */
-  }
-  
-  .crypto-addresses p {
-    margin: 5px 0;
-  }
-  
-  /* 3 Spinning Coins in a Row */
-  .coin-row {
-    display: flex;
-    justify-content: space-around;
-    margin: 30px 0;
-  }
-  
-  /* 3D coin container */
-  .coin-3d-container {
-    width: 120px;
-    height: 120px;
-    perspective: 1000px;
-  }
-  
-  /* Different animations for each coin */
-  .eth-coin .coin-3d {
-    background: url('../../assets/coinW.png') no-repeat center center / cover;
-    animation: rotateCoin 3s infinite linear;
-  }
-  
-  .sol-coin .coin-3d {
-    background: url('../../assets/coinW.png') no-repeat center center / cover;
-    animation: rotateCoin 4s infinite linear;
-  }
-  
-  .btc-coin .coin-3d {
-    background:  url('../../assets/coinW.png') no-repeat center center / cover;
-    animation: rotateCoin 2.5s infinite linear;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .progress-hero {
+    height: 50vh;
   }
 
-  .coin-3d {
-    width: 100%;
-    height: 100%;
-    background-size: cover; /* Ensures the image covers the entire container */
-    border-radius: 50%;
-    animation: rotateCoin 3s infinite linear;
+  .hero-content h1 {
+    font-size: 2.5rem;
   }
-  
-  
-  @keyframes rotateCoin {
-    0% {
-      transform: rotateY(0);
-    }
-    100% {
-      transform: rotateY(360deg);
-    }
+
+  .hero-content p {
+    font-size: 1.2rem;
   }
-  
-  /* Responsive styling */
-  @media (max-width: 768px) {
-    .progress-bar-3d {
-      height: 25px;
-    }
-  
-    .coin-3d-container {
-      width: 100px;
-      height: 100px;
-    }
-  
-    .coin-row {
-      flex-direction: column;
-    }
+
+  .progress-container {
+    margin: 10px;
+    padding: 15px;
   }
-  
+
+  .coin-row {
+    gap: 15px;
+  }
+
+  .coin-3d-container {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .progress-section h2,
+  .way-coin-section h2 {
+    font-size: 2rem;
+  }
+
+  .progress-bar-3d {
+    height: 25px;
+  }
+
+  .coin-3d-container {
+    width: 50px;
+    height: 50px;
+  }
+}

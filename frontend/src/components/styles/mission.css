@@ -1,296 +1,301 @@
+/* Import Fonts (Single Font for Efficiency) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* CSS Variables */
+:root {
+  --background-color: #1a2b49; /* Dark navy */
+  --primary-color: #f5c518; /* Bright yellow */
+  --text-color: #ffffff; /* White */
+  --overlay-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  --font-body: 'Roboto', sans-serif; /* Single font for efficiency */
+}
+
 /* Global Styles */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-body);
   margin: 0;
   padding: 0;
-  background-color: #1c1f24; /* Dark slate grey-blue */
-  color: #e0e0e0; /* Light grey for text */
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.mission-page {
+  background-color: var(--background-color);
 }
 
 /* Hero Section */
 .hero-section {
-  background-image: url('../..//assets/door.png'); /* Grayscale background image */
+  position: relative;
+  height: 50vh; /* Reduced for efficiency */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #1a2b49, #223a66); /* Gradient instead of image */
   background-size: cover;
   background-position: center;
-  height: 80vh;
-  position: relative;
-  color: #e0e0e0;
 }
 
-.hero-overlay {
-  background-color: rgba(0, 0, 0, 0.6);
+.hero-content {
+  text-align: center;
+  padding: 20px;
+  max-width: 600px; /* Slightly reduced */
+}
+
+.hero-content h1 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem); /* Adjusted for responsiveness */
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+  line-height: 1.6;
+}
+
+/* What Drives Us Section */
+.drives-section {
+  padding: 40px 15px; /* Reduced padding */
+  text-align: center;
+}
+
+.drives-section h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.drives-panels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Restored to 3 columns */
+  gap: 20px; /* Reduced gap */
+  max-width: 1000px; /* Slightly smaller */
+  margin: 0 auto;
+}
+
+.panel {
+  position: relative;
+  height: 350px; /* Increased for text fitting */
+  border-radius: 10px;
+  background-size: cover; /* Ensure image covers the panel */
+  background-position: center; /* Center the image */
+}
+
+.panel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-color); /* Semi-transparent overlay */
+  border-radius: 10px; /* Match panel corners */
+}
+
+.panel-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 40px; /* Increased for text fitting */
   text-align: center;
-  height: 100%;
-  padding: 0 20px;
-}
-
-.hero-overlay h1 {
-  font-size: 3rem;
-  color: #a4cc34; /* Dark lime green for emphasis */
-  margin-bottom: 20px;
-}
-
-.hero-overlay p {
-  font-size: 1.5rem;
-  max-width: 800px;
-}
-
-/* Mission Statement Section */
-.mission-statement {
-  padding: 60px 20px;
-  background-color: #2a2e35; /* Darker grey for sections */
-  text-align: center;
-}
-
-.mission-statement h2 {
-  font-size: 2.5rem;
-  color: #a4cc34;
-  margin-bottom: 40px;
-}
-
-.mission-panels {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.panel {
-  flex: 1;
-  min-width: 250px;
-  max-width: 350px;
-  background-color: #1c1f24;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  color: #e0e0e0;
-  position: relative;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  box-sizing: border-box;
 }
 
 .panel h3 {
-  font-size: 1.8rem;
-  color: #a4cc34;
-  margin-bottom: 15px;
-  z-index: 2;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 4vw, 1.8rem); /* Responsive sizing */
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  line-height: 1.2; /* Added for spacing */
 }
 
 .panel p {
-  z-index: 2;
+  font-size: clamp(0.8rem, 2.5vw, 1rem); /* Responsive sizing */
+  color: var(--text-color);
+  line-height: 1.5; /* Added for spacing */
 }
 
-/* Overlay for panels */
-.panel::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text readability */
-  z-index: 1;
+/* Panel Backgrounds */
+.community {
+  background-image: url('../../assets/community.jpg'); /* Restored image */
+  background-size: cover;
+  background-position: center;
 }
 
-/* Background images for each panel */
-.panel.community {
-  background-image: url('../../assets/door.png');
+.growth {
+  background-image: url('../../assets/growth.jpg'); /* Restored image */
+  background-size: cover;
+  background-position: center;
 }
 
-.panel.growth {
-  background-image: url('../../assets/walk.png');
+.creativity {
+  background-image: url('../../assets/creativity.jpg'); /* Restored image */
+  background-size: cover;
+  background-position: center;
 }
 
-.panel.creativity {
-  background-image: url('../../assets/create.png');
-}
-
-/* Hover effect */
-.panel:hover {
-  transform: translateY(-10px);
-}
-
-/* Values & Goals Section */
-.values-goals {
-  background-color: #2a2e35;
-  padding: 60px 20px;
+/* Core Values Section */
+.values-section {
+  padding: 40px 15px; /* Reduced padding */
+  background-color: #223a66;
   text-align: center;
 }
 
-.values-goals h2 {
-  font-size: 2.5rem;
-  color: #a4cc34;
-  margin-bottom: 40px;
+.values-section h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 30px;
 }
 
 .values-grid {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.value-box {
-  flex: 1;
-  min-width: 200px;
-  max-width: 300px;
-  background-color: #1c1f24;
-  padding: 20px;
+.value-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px; /* Reduced padding */
   border-radius: 10px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  color: #e0e0e0;
 }
 
-.value-box:hover {
-  transform: scale(1.05);
+.value-icon {
+  font-size: 2rem; /* Slightly smaller */
+  color: var(--primary-color);
+  margin-bottom: 15px;
 }
 
-.value-box h3 {
-  font-size: 1.5rem;
-  color: #a4cc34;
+.value-card h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.3rem; /* Slightly smaller */
+  color: var(--text-color);
   margin-bottom: 10px;
 }
 
+.value-card p {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
 /* Future Vision Section */
-.future-vision {
-  padding: 60px 20px;
-  background-color: #1c1f24;
+.vision-section {
+  display: flex;
+  align-items: center;
+  padding: 40px 15px;
+  background-color: var(--background-color);
+}
+
+.vision-text {
+  flex: 1;
+  padding: 15px;
   text-align: center;
 }
 
-.future-vision h2 {
-  font-size: 2.5rem;
-  color: #a4cc34;
-  margin-bottom: 30px;
+.vision-text h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 15px;
 }
 
-.future-vision p {
-  font-size: 1.2rem;
-  max-width: 800px;
-  margin: 0 auto 40px;
+.vision-text p {
+  font-size: 1rem; /* Slightly smaller */
+  color: var(--text-color);
 }
 
-.future-vision-panel {
-  background-image: url('../../assets/foyer.png'); /* Future vision image */
+.vision-image {
+  flex: 1;
+  height: 350px; /* Reduced height */
+  background-image: url('../../assets/vision.jpg'); /* Restored image */
   background-size: cover;
   background-position: center;
-  padding: 40px;
   border-radius: 10px;
-  color: #e0e0e0;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  margin-top: 30px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  min-height: 300px;
-}
-
-/* Overlay for Future Vision panel */
-.future-vision-panel::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Overlay for text visibility */
-  z-index: 1;
-}
-
-.future-vision-panel p {
-  position: relative;
-  z-index: 2;
-  font-size: 1.5rem;
-  max-width: 800px;
-  margin: 0 auto;
-  color: #e0e0e0;
 }
 
 /* Call to Action Section */
-.call-to-action {
-  background-color: #a4cc34;
-  color: #1c1f24;
-  padding: 60px 20px;
+.cta-section {
+  padding: 40px 15px;
+  background-color: var(--primary-color);
   text-align: center;
 }
 
-.call-to-action h2 {
-  font-size: 2.5rem;
+.cta-section h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  color: var(--background-color);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.cta-section p {
+  font-size: 1rem;
+  color: var(--background-color);
   margin-bottom: 20px;
 }
 
-.call-to-action p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
 .cta-button {
-  background-color: #1c1f24;
-  color: #a4cc34;
-  padding: 15px 30px;
-  font-size: 1.2rem;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  padding: 10px 25px; /* Reduced padding */
+  font-size: 1rem;
+  font-family: var(--font-body);
+  font-weight: 700;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.cta-button:hover {
-  background-color: #333;
-}
-
-/* Responsive Adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
-  .mission-panels,
-  .values-grid {
+  .drives-panels, .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vision-section {
     flex-direction: column;
-    align-items: center;
   }
 
-  .panel,
-  .value-box {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .hero-overlay h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero-overlay p {
-    font-size: 1.2rem;
+  .vision-image {
+    height: 250px;
+    margin-top: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-overlay h1 {
-    font-size: 2rem;
+  .hero-content h1 {
+    font-size: 1.8rem;
   }
 
-  .hero-overlay p {
-    font-size: 1rem;
+  .hero-content p {
+    font-size: 0.9rem;
   }
 
-  .call-to-action h2,
-  .future-vision h2 {
-    font-size: 2rem;
+  .panel h3 {
+    font-size: clamp(1rem, 3vw, 1.5rem);
   }
 
-  .cta-button {
-    padding: 10px 20px;
-    font-size: 1rem;
+  .panel p {
+    font-size: clamp(0.7rem, 2vw, 0.9rem);
   }
 }

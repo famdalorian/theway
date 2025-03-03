@@ -1,198 +1,339 @@
-/* Global styles */
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;600&display=swap');
+
+/* CSS Variables (Ensure these are already in your App.css or add them) */
 :root {
-  --background-color: #1c1f24; /* Dark Slate Grey-Blue */
-  --primary-color: #a4cc34; /* Dark Lime Green */
-  --text-color: #e0e0e0; /* Light grey for text */
-  --border-color: #2a2e35; /* Slightly lighter grey for borders */
-  --hover-color: #94b32d; /* Slightly brighter lime green for hover */
-  --transition-speed: 0.3s; /* Standardized transition speed */
+  --background-color: #1a2b49; /* Dark navy */
+  --primary-color: #f5c518; /* Bright yellow */
+  --text-color: #ffffff; /* White */
+  --overlay-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  --transition-speed: 0.3s; /* Smooth transitions */
+  --font-heading: 'Oswald', sans-serif; /* Bold, modern headings */
+  --font-body: 'Roboto', sans-serif; /* Clean body text */
+}
+/* Import Fonts (Ensure this is already in App.css or add it) */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;600&display=swap');
+
+/* CSS Variables (Ensure these are already in App.css or add them) */
+:root {
+  --background-color: #1a2b49; /* Dark navy */
+  --primary-color: #f5c518; /* Bright yellow */
+  --text-color: #ffffff; /* White */
+  --overlay-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  --transition-speed: 0.3s; /* Smooth transitions */
+  --font-heading: 'Oswald', sans-serif; /* Bold, modern headings */
+  --font-body: 'Roboto', sans-serif; /* Clean body text */
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-
-/* Responsive layout adjustments */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Header */
+/* Header Styles */
 .header {
-  background-color: var(--border-color);
-  padding: 20px;
-  text-align: center;
+  background: linear-gradient(45deg, var(--background-color) 25%, #223a66 25%, #223a66 50%, var(--background-color) 50%, var(--background-color) 75%, #223a66 75%);
+  background-size: 40px 40px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.header h1 {
+/* Logo Styling */
+.logo {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   color: var(--primary-color);
-  font-size: 2.5rem;
+  margin: 0;
+  text-transform: uppercase;
 }
 
+/* Navigation Styles */
 .nav {
   display: flex;
   gap: 20px;
 }
 
-.nav a {
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  background-color: transparent;
   color: var(--text-color);
   text-decoration: none;
-  font-size: 1.2rem;
-  transition: color var(--transition-speed);
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: color var(--transition-speed) ease, background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+  position: relative;
 }
 
-.nav a:hover {
-  color: var(--primary-color);
+.nav-link:hover {
+  background-color: rgba(245, 197, 24, 0.2); /* Subtle yellow background on hover */
+  transform: translateY(-2px);
 }
 
-/* Responsive navigation */
+/* Active State */
+.nav-link.active {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  font-weight: 600;
+}
+
+/* Underline Effect for Active Link */
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 15px;
+  width: calc(100% - 30px);
+  height: 2px;
+  background-color: var(--background-color);
+}
+
+/* Responsive Navigation */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
+    padding: 15px 20px;
   }
 
   .nav {
     flex-direction: column;
     gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .nav-link {
+    padding: 15px;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+
+  .nav-link:hover {
+    transform: none;
+  }
+
+  .nav-link.active::after {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
   }
 }
 
-/* Main content */
-.main-content {
-  flex: 1;
-  padding: 20px;
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
 }
 
-.hero-section {
-  background-image: url('../src/assets/heroimg.png');
+/* Home Page Container */
+.home-page {
+  background-color: var(--background-color);
+}
+
+/* Hero Section */
+.home-hero {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../src/assets/heroimg.png'); /* Replace with your image */
   background-size: cover;
   background-position: center;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
 }
 
 .hero-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 40px;
-  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-color);
+}
+
+.hero-content {
+  position: relative;
   text-align: center;
-  color: var(--text-color);
+  padding: 20px;
+  max-width: 700px;
 }
 
-.hero-overlay h2 {
-  font-size: 2.5rem;
+.hero-content h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   color: var(--primary-color);
-  margin-bottom: 20px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
 }
 
-.hero-overlay p {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-}
-
-.cta-button {
-  background-color: var(--primary-color);
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  line-height: 1.6;
   color: var(--text-color);
-  padding: 15px 30px;
-  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+.hero-cta-button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-family: var(--font-heading);
   text-decoration: none;
-  font-size: 1.2rem;
-  transition: background-color var(--transition-speed);
+  border-radius: 5px;
+  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
 }
 
-.cta-button:hover {
-  background-color: var(--hover-color);
+.hero-cta-button:hover {
+  background-color: #e0b316;
+  transform: scale(1.05);
 }
 
-/* Features grid */
+/* Features Section */
+.features-section {
+  padding: 60px 20px;
+  background-color: #223a66; /* Slightly lighter navy */
+  text-align: center;
+}
+
+.features-section h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
 .features-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  align-items: center;
-  gap: 20px;
-  padding: 40px 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .feature-card {
-  background-color: var(--border-color);
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 20px;
   border-radius: 10px;
-  text-align: center;
-  transition: transform var(--transition-speed), background-color var(--transition-speed);
+  transition: transform var(--transition-speed) ease;
 }
 
 .feature-card:hover {
   transform: translateY(-5px);
-  background-color: var(--hover-color);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
 }
 
 .feature-card h3 {
-  color: var(--primary-color);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--text-color);
   margin-bottom: 10px;
 }
 
 .feature-card p {
+  font-size: 1rem;
   color: var(--text-color);
 }
 
-/* Responsive grid layout for features */
-@media (min-width: 768px) {
-  .features-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+/* Progress Teaser Section */
+.progress-teaser-section {
+  display: flex;
+  align-items: center;
+  padding: 60px 20px;
+  background-color: var(--background-color);
 }
 
-@media (min-width: 1024px) {
-  .features-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* Footer */
-.footer {
-  background-color: var(--border-color);
+.progress-text {
+  flex: 1;
   padding: 20px;
   text-align: center;
-  color: var(--text-color);
-  font-size: 1rem;
-  position: relative;
-  width: 100%;
-  bottom: 0;
 }
 
-/* Buttons */
-button {
-  background-color: var(--primary-color);
-  color: var(--text-color);
-  padding: 12px 20px;
+.progress-text h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.progress-text p {
   font-size: 1.2rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  color: var(--text-color);
+  margin-bottom: 25px;
 }
 
-button:hover {
-  background-color: var(--hover-color);
-  transform: translateY(-3px);
+.progress-cta-button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-family: var(--font-heading);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.progress-cta-button:hover {
+  background-color: #e0b316;
+  transform: scale(1.05);
+}
+
+.progress-image {
+  flex: 1;
+  height: 400px;
+  background-image: url('../src/assets/progress-bg.jpg'); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-teaser-section {
+    flex-direction: column;
+  }
+
+  .progress-image {
+    height: 300px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .features-section h2,
+  .progress-text h2 {
+    font-size: 2rem;
+  }
+
+  .progress-cta-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
 }
