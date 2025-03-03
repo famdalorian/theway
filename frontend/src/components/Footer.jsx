@@ -5,7 +5,7 @@ import '../components/styles/footer.css'; // Import the footer styles
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>© 2024 The Way. All Rights Reserved.</p>
+      <p>© 2025 The Way. All Rights Reserved.</p>
       <div className="social-links">
         <a href="https://twitter.com/TheWayProject" target="_blank" rel="noopener noreferrer" className="social-link">
           <FaTwitter />
