@@ -1,179 +1,205 @@
-/* General Styles */
-.nft-page {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a2e;
-    color: white;
-  }
-  
-  /* Hero Section */
-  .hero-section {
-    text-align: center;
-    padding: 60px 20px;
-  }
-  
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* CSS Variables */
+:root {
+  --background-color: #1a2b49; /* Dark navy background */
+  --primary-color: #f5c518; /* Bright yellow for headings */
+  --text-color: #ffffff; /* White text */
+  --button-background: #f5c518; /* Button color */
+  --button-text: #1a2b49; /* Button text color */
+  --radius: 10px; /* Rounded corners */
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  --font-body: 'Roboto', sans-serif;
+  --heading-font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  --text-font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+}
+
+/* Project Page Container */
+.project-page {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 40px 15px;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero-section h1 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 3rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Values Section */
+.values-section {
+  text-align: center;
+  padding: 40px 15px;
+}
+
+.values-section h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--heading-font-size);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.values-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.value-card {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: var(--radius);
+  padding: 20px;
+  width: 250px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.value-card h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.value-card p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+/* Connect with Us Section */
+.social-section {
+  text-align: center;
+  padding: 40px 15px;
+  background-color: var(--background-color);
+}
+
+.social-section h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--heading-font-size);
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.social-section p {
+  font-size: var(--text-font-size);
+  color: var(--text-color);
+  margin-bottom: 30px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-card {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background for contrast */
+  border-radius: var(--radius);
+  padding: 10px 15px; /* Padding inside the box */
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.social-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.social-link:hover .social-icon {
+  color: #e0b316; /* Darker yellow on hover */
+}
+
+.social-link:hover span {
+  color: #e0b316; /* Darker yellow on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
   .hero-section h1 {
     font-size: 2.5rem;
-    color: #d4f938; /* Lime-green */
   }
-  
-  .hero-section p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 10px auto;
-  }
-  
-  /* NFT Section */
-  .nft-section {
-    text-align: center;
-    padding: 40px 20px;
-  }
-  
-  .nft-section h1 {
-    font-size: 2.5rem;
-    color: #d4f938;
-  }
-  
-  .nft-section h2 {
-    font-size: 1.8rem;
-    margin: 10px 0;
-  }
-  
-  .nft-section p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-  }
-  
-  .mint-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #d4f938;
-    color: #1a1a2e;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-  }
-  
-  /* Values Section */
-  .values-section {
-    padding: 50px 20px;
-    text-align: center;
-  }
-  
+
   .values-section h2 {
     font-size: 2rem;
-    color: #d4f938;
-    text-transform: uppercase;
-    margin-bottom: 30px;
   }
-  
-  .values-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
+
   .value-card {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-    padding: 20px;
-    width: 250px;
-    text-align: center;
+    width: 100%;
   }
-  
-  .value-card h3 {
-    font-size: 1.5rem;
-    text-transform: uppercase;
-  }
-  
-  .value-card .highlight {
-    color: #d4f938;
-  }
-  
-  .value-card p {
-    font-size: 1rem;
-  }
-  
-  /* Gallery Section */
-  .gallery-section {
-    padding: 50px 20px;
-    text-align: center;
-  }
-  
-  .gallery-section h2 {
+
+  .social-section h2 {
     font-size: 2rem;
-    color: #d4f938;
-    margin-bottom: 30px;
   }
-  
-  .gallery-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+
+  .social-link {
+    font-size: 0.9rem;
   }
-  
-  .nft-preview img {
-    width: 200px;
-    border-radius: 10px;
-  }
-  
-  .nft-preview p {
-    margin-top: 10px;
-  }
-  
-  /* FAQ Section */
-  .faq-section {
-    padding: 50px 20px;
-    text-align: center;
-  }
-  
-  .faq-section h2 {
-    font-size: 2rem;
-    color: #d4f938;
-    margin-bottom: 30px;
-  }
-  
-  .faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .faq-item {
-    margin-bottom: 20px;
-  }
-  
-  .faq-item h3 {
+
+  .social-icon {
     font-size: 1.3rem;
   }
-  
-  /* Testimonials Section */
-  .testimonials-section {
-    padding: 50px 20px;
-    text-align: center;
-  }
-  
-  .testimonials-section h2 {
+}
+
+@media (max-width: 480px) {
+  .hero-section h1 {
     font-size: 2rem;
-    color: #d4f938;
-    margin-bottom: 30px;
   }
-  
-  .testimonials-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+
+  .hero-section p {
+    font-size: 1rem;
   }
-  
-  .testimonial-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 20px;
-    width: 300px;
+
+  .social-section h2 {
+    font-size: 1.8rem;
   }
-  
-  .testimonial-card .author {
-    font-style: italic;
-    margin-top: 10px;
+
+  .social-link {
+    font-size: 0.8rem;
   }
+
+  .social-icon {
+    font-size: 1.2rem;
+  }
+}

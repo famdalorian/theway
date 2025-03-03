@@ -1,5 +1,15 @@
 import React from "react";
-import "./styles/community.css"; // Import the stylesheet
+import {
+  FaYoutube,
+  FaTelegram,
+  FaTwitter,
+  FaDiscord,
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedin,
+  FaTiktok,
+} from "react-icons/fa";
+import "./styles/community.css";
 
 const Community = () => {
   return (
@@ -10,17 +20,6 @@ const Community = () => {
         <p>
           A global community celebrating art, music, and sports—where creativity meets connection.
         </p>
-      </section>
-
-      {/* NFT Section: The Urchins */}
-      <section className="nft-section">
-        <h2>The Urchins: They’ll Show You the Way</h2>
-        <p>
-          Mint your Urchin NFT to join our exclusive community and unlock token-gated experiences.
-        </p>
-        <a href="https://mint-page-url.com" className="mint-button">
-          Mint Now
-        </a>
       </section>
 
       {/* What Drives Us Section */}
@@ -38,6 +37,62 @@ const Community = () => {
           <div className="value-card">
             <h3>Creative Expression</h3>
             <p>Fostering innovation in art, music, and sports.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Connect with Us Section */}
+      <section className="social-section">
+        <h2>Connect with Us</h2>
+        <p>Join our community on your favorite platforms and stay updated!</p>
+        <div className="social-links">
+          <div className="social-card">
+            <a href="https://youtube.com/TheWayProject" target="_blank" rel="noopener noreferrer" className="social-link">
+              <FaYoutube className="social-icon" />
+              <span>YouTube</span>
+            </a>
+          </div>
+          <div className="social-card">
+            <a href="https://t.me/TheWayProject" target="_blank" rel="noopener noreferrer" className="social-link">
+              <FaTelegram className="social-icon" />
+              <span>Telegram</span>
+            </a>
+          </div>
+          <div className="social-card">
+            <a href="https://twitter.com/TheWayProject" target="_blank" rel="noopener noreferrer" className="social-link">
+              <FaTwitter className="social-icon" />
+              <span>X</span>
+            </a>
+          </div>
+          <div className="social-card">
+            <a href="https://discord.gg/TheWayProject" target="_blank" rel="noopener noreferrer" className="social-link">
+              <FaDiscord className="social-icon" />
+              <span>Discord</span>
+            </a>
+          </div>
+          <div className="social-card">
+            <a href="https://facebook.com/TheWayProject" target="_blank" rel="noopener noreferrer" className="social-link">
+              <FaFacebookF className="social-icon" />
+              <span>Facebook</span>
+            </a>
+          </div>
+          <div className="social-card">
+            <a href="https://instagram.com/TheWayProject" target="_blank" rel="noopener noreferrer" className="social-link">
+              <FaInstagram className="social-icon" />
+              <span>Instagram</span>
+            </a>
+          </div>
+          <div className="social-card">
+            <a href="https://linkedin.com/company/TheWayProject" target="_blank" rel="noopener noreferrer" className="social-link">
+              <FaLinkedin className="social-icon" />
+              <span>LinkedIn</span>
+            </a>
+          </div>
+          <div className="social-card">
+            <a href="https://tiktok.com/@TheWayProject" target="_blank" rel="noopener noreferrer" className="social-link">
+              <FaTiktok className="social-icon" />
+              <span>TikTok</span>
+            </a>
           </div>
         </div>
       </section>

@@ -1,11 +1,18 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import Contact from './components/Contact';
-import Mission from './components/Mission';
-import Progress from './components/Progress';
-import Community from './components/Community';
-import Footer from './components/Footer'; // Import the new Footer component
-import './App.css'; // Global styles
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
+import Contact from "./components/Contact";
+import Mission from "./components/Mission";
+import Progress from "./components/Progress";
+import Community from "./components/Community";
+import Web3 from "./components/Web3"; // Import the new Web3 page
+import Footer from "./components/Footer";
+import "./App.css";
 
 const App = () => {
   return (
@@ -18,7 +25,8 @@ const App = () => {
             <NavLink to="/" label="Home" />
             <NavLink to="/mission" label="Mission" />
             <NavLink to="/progress" label="Progress" />
-            <NavLink to="/community" label="Community" />
+            <NavLink to="/community" label="Community" />{" "}
+            <NavLink to="/web3" label="Web 3" /> {/* New navigation link */}
             <NavLink to="/contact" label="Contact" />
           </nav>
         </header>
@@ -32,11 +40,11 @@ const App = () => {
               <Route path="/mission" element={<Mission />} />
               <Route path="/progress" element={<Progress />} />
               <Route path="/community" element={<Community />} />
+              <Route path="/web3" element={<Web3 />} /> {/* New route */}
             </Routes>
           </div>
         </main>
 
-        {/* Footer (Moved here for all pages) */}
         <Footer />
       </div>
     </Router>
@@ -48,7 +56,7 @@ const NavLink = ({ to, label }) => {
   const location = useLocation();
   const isActive = location.pathname === to;
   return (
-    <Link to={to} className={`nav-link ${isActive ? 'active' : ''}`}>
+    <Link to={to} className={`nav-link ${isActive ? "active" : ""}`}>
       {label}
     </Link>
   );
@@ -63,7 +71,10 @@ const Home = () => {
         <div className="hero-overlay">
           <div className="hero-content">
             <h1>Discover The Way</h1>
-            <p>A global community celebrating art, music, and sports—wherever the journey takes us.</p>
+            <p>
+              A global community celebrating art, music, and sports—wherever the
+              journey takes us.
+            </p>
             <Link to="/community" className="hero-cta-button">
               Join the Community
             </Link>
@@ -78,7 +89,10 @@ const Home = () => {
           <div className="feature-card">
             <div className="feature-icon">🏀</div>
             <h3>Sports</h3>
-            <p>Connect with fans of action sports—from skateboarding to martial arts.</p>
+            <p>
+              Connect with fans of action sports—from skateboarding to martial
+              arts.
+            </p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">🎨</div>
@@ -98,7 +112,9 @@ const Home = () => {
         <div className="progress-text">
           <h2>Our Progress</h2>
           <p>Support the growth of our community and kindness efforts.</p>
-          <Link to="/progress" className="progress-cta-button">See the Progress</Link>
+          <Link to="/progress" className="progress-cta-button">
+            See the Progress
+          </Link>
         </div>
         <div className="progress-image"></div>
       </section>
